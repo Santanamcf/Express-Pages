@@ -2,7 +2,7 @@ const express = require('express');
 const fs  = require('fs');
 const path = require('path')
 const { v4: uuidv4 } = require('uuid');
-const { readAndAppend, readFromFile } = require('../fsUtils');
+const { readAndAppend, readFromFile } = require('./fsUtils');
 
 const PORT = process.env.PORT || 3001;
 
@@ -12,10 +12,10 @@ app.use(express.json());
 app.use(express.urlencoded({extended:true}))
 
 app.get("/",(req,res)=>{
-    res.sendFile(path.join(__dirname, "./index.html"))
+    res.sendFile(path.join(__dirname, "/public/index.html"))
 })
 app.get("/notes",(req,res)=>{
-    res.sendFile(path.join(__dirname, "./public/notes.html"))
+    res.sendFile(path.join(__dirname, "/public/notes.html"))
 })
 
 app.get("/api/notes",(req, res)=>{
